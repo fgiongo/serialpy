@@ -1,10 +1,11 @@
 from pySerialTransfer import pySerialTransfer as txfer
 import time
 
-global link
-link = txfer.SerialTransfer('/dev/ttyACM0', 9600)
+#link = txfer.SerialTransfer('/dev/ttyACM0', 9600)
+link = txfer.SerialTransfer('/dev/serial0', 9600)
 
 def handleBNO08x():
+    global link
     accel = []
     gyro = []
     magnet = []
@@ -45,6 +46,7 @@ def handleBNO08x():
 
 
 def handleBME688():
+    global link
     temp = 0
     pressure = 0
     humidity = 0
